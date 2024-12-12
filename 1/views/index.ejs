@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Середній вік військовослужбовців</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <h1>Дані військовослужбовців</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>№ п/п</th>
+                <th>Звання</th>
+                <th>ПІБ</th>
+                <th>Вік</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% servicemen.forEach((serviceman, index)=> { %>
+                <tr>
+                    <td>
+                        <%= index + 1 %>
+                    </td>
+                    <td>
+                        <%= serviceman.rank %>
+                    </td>
+                    <td>
+                        <%= serviceman.fullName %>
+                    </td>
+                    <td>
+                        <%= serviceman.age %>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+
+    <div>
+        <button id="startButton">Старт</button>
+    </div>
+
+    <!-- Модальне вікно -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <p>Середній вік: <span id="averageAge">0</span></p>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>
