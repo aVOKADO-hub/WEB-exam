@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зміна кольору квадратів</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .square {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Квадрати</h1>
+    <div class="container">
+        <div class="square green" id="square1"></div>
+        <div class="square red" id="square2"></div>
+    </div>
+    <button id="startButton">Старт</button>
+
+    <script>
+        // Отримання елементів квадратів
+        const square1 = document.getElementById('square1');
+        const square2 = document.getElementById('square2');
+        const button = document.getElementById('startButton');
+
+        // Додавання обробника події на кнопку
+        button.addEventListener('click', () => {
+            // Перемикання кольорів між квадратами
+            if (square1.classList.contains('green')) {
+                square1.classList.remove('green');
+                square1.classList.add('red');
+
+                square2.classList.remove('red');
+                square2.classList.add('green');
+            } else {
+                square1.classList.remove('red');
+                square1.classList.add('green');
+
+                square2.classList.remove('green');
+                square2.classList.add('red');
+            }
+        });
+    </script>
+</body>
+
+</html>
